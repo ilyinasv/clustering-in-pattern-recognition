@@ -18,7 +18,6 @@ namespace pattern_recognition
             // задаем произвольную лямбду для формулы подсчёта расстояний между кластерами
             Random x = new Random();
             this.lambda = x.Next(-100, 100);
-            //this.lambda = 1;
         }
 
         public List<Cluster> ClusterData(List<Cluster> data, int clusterAmount, int threshold, string distanceMethod, double[] weights)
@@ -91,8 +90,8 @@ namespace pattern_recognition
                 }
             };
             dist /= (m1*m2);
-            double pointDist = Math.Pow((double)dist, (double) 1 / lambda);
-            return pointDist;
+            double clustDist = Math.Pow((double)dist, (double) 1 / lambda);
+            return clustDist;
         }
 
         private static double distPoints(Point p1, Point p2, string distanceMethod, double[] weights)
